@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import os
+from dotenv import load_dotenv  # Импортируем environ
+
+load_dotenv()  # Загрузка переменных окружения из файла .env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +30,11 @@ SECRET_KEY = 'django-insecure-_w1(xf92^!ho@fp2y__-$@2w5-r&gyan(d*q0!$o14=*t3u1^m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+AUTH_USER_MODEL ='users.User'
+
+LOGIN_URL = 'login'
+
+ALLOWED_HOSTS = ['webserver', '127.0.0.1', '.onrender.com']
 
 
 # Application definition
@@ -37,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'task_manager',
+    'task_manager.users',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +65,7 @@ ROOT_URLCONF = 'task_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,6 +90,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+if os.getenv('DATABASE_URL'):
+    db_from_env = dj_database_url.config(conn_max_age=600)
+    DATABASES['default'].update(db_from_env)
+
 
 
 # Password validation

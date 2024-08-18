@@ -15,6 +15,21 @@ files = [
 tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
+name = "dj-database-url"
+version = "2.2.0"
+description = "Use Database URLs in your Django Application."
+optional = false
+python-versions = "*"
+files = [
+    {file = "dj_database_url-2.2.0-py3-none-any.whl", hash = "sha256:3e792567b0aa9a4884860af05fe2aa4968071ad351e033b6db632f97ac6db9de"},
+    {file = "dj_database_url-2.2.0.tar.gz", hash = "sha256:9f9b05058ddf888f1e6f840048b8d705ff9395e3b52a07165daa3d8b9360551b"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+typing_extensions = ">=3.10.0.0"
+
+[[package]]
 name = "django"
 version = "5.1"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
@@ -35,6 +50,34 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-bootstrap5"
+version = "24.2"
+description = "Bootstrap 5 for Django"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_bootstrap5-24.2-py3-none-any.whl", hash = "sha256:6a5d83e9ff1952f7c07c54cebcb76c85f09787b8b57eeb4ec07554cd583acc64"},
+    {file = "django_bootstrap5-24.2.tar.gz", hash = "sha256:a3cee2b3d45745210c5b898af2917f310f44df746269fe09a93be28a0adc2a4b"},
+]
+
+[package.dependencies]
+Django = ">=4.2"
+
+[[package]]
+name = "python-dotenv"
+version = "1.0.1"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "python-dotenv-1.0.1.tar.gz", hash = "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"},
+    {file = "python_dotenv-1.0.1-py3-none-any.whl", hash = "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"},
+]
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "sqlparse"
 version = "0.5.1"
 description = "A non-validating SQL parser."
@@ -50,6 +93,17 @@ dev = ["build", "hatch"]
 doc = ["sphinx"]
 
 [[package]]
+name = "typing-extensions"
+version = "4.12.2"
+description = "Backported and Experimental Type Hints for Python 3.8+"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
+    {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
+]
+
+[[package]]
 name = "tzdata"
 version = "2024.1"
 description = "Provider of IANA time zone data"
@@ -63,4 +117,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "d610574c707bcc507521c722f91a9226d4d73b3f9cdf2d6ecb01aea1b0b1bb85"
+content-hash = "f73f83a182277399d5129808cf00d70535f10a9a4e44b6c9317e7ee2330af797"
