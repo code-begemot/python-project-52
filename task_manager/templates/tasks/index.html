@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="container wrapper flex-grow-1">
+
+	<h1 class="my-4">
+
+		{% translate "Tasks" %}
+
+	</h1>
+<a class="btn btn-primary mb-3" href="{% url 'task_create' %}">{% translate "Create task" %}</a>
+
+<form method="get">
+
+      {% bootstrap_form filter.form %}
+
+      {% translate "Show" as button_text %}
+      {% bootstrap_button button_type="submit" content=button_text %}
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>{% translate "Name" %}</th>
+	  <th>{% translate "Status" %}</th>
+	  <th>{% translate "Creator" %}</th>
+	  <th>{% translate "Executor" %}</th>
+      <th>{% translate "Date created" %}</th>
+      <th></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+	  {% for task in filter.qs %}
+      <tr>
+        <td>{{ task.id }}</td>
+        <td>
+			<a href="{% url 'task_detail' task.pk %}">{{ task.name }}</a>
+		</td>
+		<td>{{ task.status }}</td>
+		<td>{{ task.creator }}</td>
+		<td>{{ task.executor }}</td>
+        <td>{{ task.created_at|date:"d.m.Y" }} {{ task.created_at|time:"H:i" }}</td>
+        <td>
+          <a href="{% url 'task_update' task.pk %}">{% translate "Change" %}</a>
+          <br>
+           <a href="{% url 'task_delete' task.pk %}">{% translate "Delete" %}</a>
+        </td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

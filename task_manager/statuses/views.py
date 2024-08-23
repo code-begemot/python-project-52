@@ -1,10 +1,8 @@
-from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.shortcuts import redirect
-from task_manager.users.forms import UserForm
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy as _
@@ -14,9 +12,8 @@ from task_manager.statuses.forms import StatusNameForm
 from django.db.models import ProtectedError
 
 
-
 class IndexView(LoginRequiredMixin, ListView):
-    model = Status
+    model = get_user_model()
     template_name = 'statuses/index.html'
     context_object_name = 'statuses'
 

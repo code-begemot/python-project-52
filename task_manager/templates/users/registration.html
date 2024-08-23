@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load i18n %}
+
+{% block content %}
+    <div class="container wrapper flex-grow-1">
+
+
+
+      <h1 class="my-4">
+
+{% translate Registration %}
+
+      </h1>
+
+<form method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+    <input class="btn btn-primary" type="submit" value="Sign in">
+</form>
+    </div>
+
+{% endblock content %}

@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import get_user_model
@@ -8,6 +7,7 @@ from task_manager.users.forms import UserForm
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy as _
+from django.db.models import ProtectedError
 
 
 class IndexView(ListView):
@@ -53,7 +53,7 @@ class UserUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'users/update.html'
     success_url = reverse_lazy('users')
     success_message = _('User data changed successfully')
-    error_message = _('Uncorrect data, please try again')
+    error_message = _('Incorrect data, please try again')
 
     def form_invalid(self, form):
         messages.error(self.request, self.error_message)
@@ -75,9 +75,8 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     template_name = 'users/registration.html'
     success_url = reverse_lazy('login')
     success_message = _('User created successfully')
-    error_message = _('Uncorrect data, please try again')
+    error_message = _('Incorrect data, please try again')
 
     def form_invalid(self, form):
         messages.error(self.request, self.error_message)
         return super().form_invalid(form)
-

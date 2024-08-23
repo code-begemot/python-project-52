@@ -1,52 +1,17 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 {% load i18n %}
-<html lang="ru-ru">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Менеджер задач Hexlet</title>
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" rel="stylesheet">
-    <script crossorigin="anonymous" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  </head>
-  <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ms-3">
-      <a class="navbar-brand" href="/">Менеджер задач</a>
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/users/">Пользователи</a>
-          </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="/statuses/">Статусы</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/labels/">Метки</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/tasks/">Задачи</a>
-            </li>
-
-        </ul>
-        <ul class="navbar-nav">
-
-            <form action="/logout/" method="post">
-              <input type="hidden" name="csrfmiddlewaretoken" value="ELuwnTp6S3YgkV8GY7Qa4nN7nBZZtdbVchHwaCDljqxhuWBT9ub2mSITFfdp92h7">
-              <input class="btn nav-link" type="submit" value="Выход">
-            </form>
-
-        </ul>
-      </div>
-    </nav>
+{% block content %}
     <div class="container wrapper flex-grow-1">
 
 
 
       <h1 class="my-4">
 
-Пользователи
+{% translate 'Users' %}
 
       </h1>
 
@@ -54,9 +19,9 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>{% translate "User name" %}</th>
-      <th>{% translate "Full name" %}</th>
-      <th>{% translate "Date created" %}</th>
+      <th>User name</th>
+      <th>Full name</th>
+      <th>Created at</th>
       <th></th>
     </tr>
   </thead>
@@ -66,22 +31,15 @@
         <td>{{ user.id }}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.get_full_name }}</td>
-        <td>{{ user.date_joined|date:"d.m.Y" }} {{ user.date_joined|time:"H:i" }}</td>
+        <td>{{ user.date_joined|date:"d.m.Y" }}</td>
         <td>
-          <a href="{% url 'user_update' user.id %}">{% translate 'Update' %}</a>
+          <a href="{% url 'user_update' user.id %}">Изменить</a>
           <br>
-          <a href="{% url 'user_delete' user.id %}">{% translate 'Delete' %}</a>
+          <a href="{% url 'user_delete' user.id %}">Удалить</a>
         </td>
       </tr>
-  {% endfor %}
+    {% endfor %}
   </tbody>
 </table>
-
     </div>
-    <footer>
-      <div class="container my-5 pt-4 border-top">
-        <a target="_blank" href="https://ru.hexlet.io">Hexlet</a>
-      </div>
-    </footer>
-  </body>
-</html>
+      {% endblock content %}

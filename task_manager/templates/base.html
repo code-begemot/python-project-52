@@ -1,0 +1,29 @@
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load i18n %}
+
+
+<!DOCTYPE html>
+<html lang="{% get_current_language as LANGUAGE_CODE %}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% translate "Task Manager" %}</title>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+
+    {% include "navigation.html" %}
+	{% bootstrap_messages %}
+
+    <main class="flex-grow-1">
+		{% block content %}
+		{% endblock %}
+	</main>
+
+    <footer>
+      <div class="container my-5 pt-4 border-top">
+        <a target="_blank" href="https://ru.hexlet.io">Hexlet</a>
+      </div>
+    </footer>
+  </body>
+</html>
