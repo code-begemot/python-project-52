@@ -9,7 +9,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 django = "^5.1"
 django-bootstrap5 = "^24.2"
 python-dotenv = "^1.0.1"
