@@ -7,6 +7,12 @@ build:
 dev:
 	python3 manage.py runserver
 
+compile:
+	poetry run django-admin compilemessages
+
+makemes:
+	poetry run django-admin makemessages --ignore="static" --ignore=".env"  -l nl
+
 PORT ?= 8000
 start:
 	poetry run python3 manage.py migrate
