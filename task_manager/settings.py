@@ -105,29 +105,17 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if not DEBUG:
-    DATABASES = {
-        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'),
-                                          engine='django.db.backends.postgresql')
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
 
-# DATABASES = {
-#    "default": {
-#        "ENGINE": "django.db.backends.sqlite3",
-#        "NAME": "db.sqlite3",
-#    },
-#    "environment": dj_database_url.config(
-#        default=os.environ.get('DATABASE_URL'),
-#        engine='django.db.backends.postgresql'
-#    )
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "db.sqlite3",
+    },
+    "environment": dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        engine='django.db.backends.postgresql'
+    )
+ }
 
 # if DATABASE_URL:
 #    DATABASES['default'] = DATABASES['environment']
