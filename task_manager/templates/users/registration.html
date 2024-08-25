@@ -16,9 +16,10 @@
       </h1>
 
 <form method="post">
-  {% csrf_token %}
-  {% bootstrap_form form %}
-    <input class="btn btn-primary" type="submit" value="Sign in">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% translate "Sign up" as button_text %}
+    {% bootstrap_button button_type="submit" content=button_text %}
 </form>
     </div>
 

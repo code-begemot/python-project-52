@@ -145,6 +145,7 @@ msgstr "Изменить"
 
 #: templates/labels/index.html:36 templates/statuses/index.html:37
 #: templates/tasks/index.html:53 templates/tasks/task.html:55
+#: task_manager/templates/users/index.html:38
 msgid "Delete"
 msgstr "Удалить"
 
@@ -256,6 +257,10 @@ msgstr "Вы разлогинены"
 msgid "Greetings from Hexlet"
 msgstr "Привет от Хекслета"
 
+#: task_manager/templates/users/registration.html:21
+msgid "Sign up"
+msgstr "Зарегистрировать"
+
 #: task_manager/templates/index.html:15
 msgid "Practical programming courses"
 msgstr "Практические курсы по программированию"
@@ -263,3 +268,7 @@ msgstr "Практические курсы по программировани�
 #: task_manager/templates/index.html:17
 msgid "Find out more"
 msgstr "Узнать больше"
+
+#: task_manager/templates/users/index.html:36
+msgid "Update"
+msgstr "Изменить"
