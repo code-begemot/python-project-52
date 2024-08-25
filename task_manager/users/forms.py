@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 
 
 class UserForm(UserCreationForm):
+    usable_password = None
 
     class Meta:
         model = get_user_model()
