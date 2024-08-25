@@ -75,7 +75,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     template_name = 'users/registration.html'
     success_url = reverse_lazy('login')
     success_message = _('User created successfully')
-    error_message = _('Incorrect data, please try again')
+    # error_message = _('Incorrect data, please try again')
 
     def form_invalid(self, form):
         messages.error(self.request, self.error_message)

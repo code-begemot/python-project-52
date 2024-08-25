@@ -1,0 +1,266 @@
+CREATE TABLE users_user (
+id integer primary key,
+username text,
+first_name text,
+last_name text,
+password text,
+created_at date,
+last_login date,
+is_superuser BLOB,
+email text
+);
+
+
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-25 14:35+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: labels/models.py:7 statuses/models.py:7 tasks/models.py:10
+#: templates/labels/index.html:21 templates/statuses/index.html:22
+#: templates/tasks/index.html:30
+msgid "Name"
+msgstr "Имя"
+
+#: labels/models.py:8 statuses/models.py:8 tasks/models.py:32
+#: templates/labels/index.html:22 templates/statuses/index.html:23
+#: templates/tasks/index.html:34 templates/tasks/task.html:38
+msgid "Date created"
+msgstr "Дата создания"
+
+#: labels/views.py:34
+msgid "Label created successfully"
+msgstr "Метка успешно создана"
+
+#: labels/views.py:42
+msgid "Label changed successfully"
+msgstr "Метка успешно изменена"
+
+#: labels/views.py:49
+msgid "Label deleted successfully"
+msgstr "Метка успешно удалена"
+
+#: labels/views.py:50
+msgid "Label used in a task cannot be deleted"
+msgstr "Невозможно удалить метку, потому что она используется"
+
+#: statuses/views.py:31
+msgid "Status created successfully"
+msgstr "Статус успешно создан"
+
+#: statuses/views.py:39
+msgid "Status changed successfully"
+msgstr "Статус успешно изменен"
+
+#: statuses/views.py:46
+msgid "Status deleted successfully"
+msgstr "Статус успешно удален"
+
+#: statuses/views.py:47
+msgid "Status used in a task cannot be deleted"
+msgstr "Невозможно удалить статус, потому что он используется"
+
+#: tasks/filters.py:13
+msgid "Only my tasks"
+msgstr "Только свои задачи"
+
+#: tasks/filters.py:24
+msgid "Label"
+msgstr "Метка"
+
+#: tasks/models.py:11
+msgid "Description"
+msgstr "Описание"
+
+#: tasks/models.py:15 templates/tasks/index.html:31
+#: templates/tasks/task.html:34
+msgid "Status"
+msgstr "Статус"
+
+#: tasks/models.py:20 templates/tasks/index.html:32
+#: templates/tasks/task.html:26
+msgid "Creator"
+msgstr "Создатель"
+
+#: tasks/models.py:26 templates/tasks/index.html:33
+#: templates/tasks/task.html:30
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: tasks/models.py:31 templates/labels/index.html:13
+#: templates/navigation.html:29 templates/tasks/task.html:43
+msgid "Labels"
+msgstr "Метки"
+
+#: tasks/views.py:49
+msgid "Task created successfully"
+msgstr "Задача успешно создана"
+
+#: tasks/views.py:63
+msgid "Task changed successfully"
+msgstr "Задача успешно изменена"
+
+#: tasks/views.py:70
+msgid "Task deleted successfully"
+msgstr "Задача успешно удалена"
+
+#: tasks/views.py:71
+msgid "Only creator can delete the task"
+msgstr "Задачу может удалить только ее автор"
+
+#: templates/base.html:11 templates/navigation.html:7
+msgid "Task Manager"
+msgstr "Менеджер задач"
+
+#: templates/labels/create.html:13 templates/labels/index.html:16
+msgid "Create label"
+msgstr "Создать метку"
+
+#: templates/labels/create.html:22 templates/statuses/create.html:22
+#: templates/tasks/create.html:22
+msgid "Create"
+msgstr "Создать"
+
+#: templates/labels/delete.html:13
+msgid "Delete label"
+msgstr "Удаление метки"
+
+#: templates/labels/delete.html:18 templates/statuses/delete.html:18
+#: templates/tasks/delete.html:18 templates/users/delete.html:18
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: templates/labels/delete.html:19 templates/statuses/delete.html:19
+#: templates/tasks/delete.html:19 templates/users/delete.html:19
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: templates/labels/index.html:34 templates/labels/update.html:22
+#: templates/statuses/index.html:35 templates/statuses/update.html:22
+#: templates/tasks/index.html:51 templates/tasks/task.html:53
+#: templates/tasks/update.html:22 templates/users/update.html:22
+msgid "Change"
+msgstr "Изменить"
+
+#: templates/labels/index.html:36 templates/statuses/index.html:37
+#: templates/tasks/index.html:53 templates/tasks/task.html:55
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/labels/update.html:13
+msgid "Изменение метки"
+msgstr ""
+
+#: templates/login.html:12 templates/navigation.html:19
+msgid "Sign In"
+msgstr "Вход"
+
+#: templates/login.html:16
+msgid "Log In"
+msgstr "Вход"
+
+#: templates/navigation.html:14 templates/users/index.html:14
+msgid "Users"
+msgstr "Пользователи"
+
+#: templates/navigation.html:22
+msgid "Sign Up"
+msgstr "Регистрация"
+
+#: templates/navigation.html:26 templates/statuses/index.html:13
+msgid "Statuses"
+msgstr "Статусы"
+
+#: templates/navigation.html:32 templates/tasks/index.html:13
+msgid "Tasks"
+msgstr "Задачи"
+
+#: templates/navigation.html:37
+msgid "Logout"
+msgstr "Выход"
+
+#: templates/statuses/create.html:13 templates/statuses/index.html:16
+msgid "Create status"
+msgstr "Создать статус"
+
+#: templates/statuses/delete.html:13
+msgid "Delete status"
+msgstr "Удаление статуса"
+
+#: templates/statuses/update.html:13
+msgid "Change status"
+msgstr "Изменение статуса"
+
+#: templates/tasks/create.html:13 templates/tasks/index.html:16
+msgid "Create task"
+msgstr "Создать задачу"
+
+#: templates/tasks/delete.html:13
+msgid "Delete task"
+msgstr "Удаление задачи"
+
+#: templates/tasks/index.html:22
+msgid "Show"
+msgstr "Показать"
+
+#: templates/tasks/task.html:13
+msgid "Detail task"
+msgstr "Просмотр задачи"
+
+#: templates/tasks/update.html:13
+msgid "Change task"
+msgstr "Изменение задачи"
+
+#: templates/users/delete.html:13
+msgid "Delete user data"
+msgstr "Удаление пользователя"
+
+#: templates/users/registration.html:14
+msgid "Registration"
+msgstr "Регистрация"
+
+#: templates/users/update.html:13
+msgid "Change user data"
+msgstr "Изменение пользователя"
+
+#: users/views.py:28
+msgid "User data deleted successfully"
+msgstr "Пользователь успешно удален"
+
+#: users/views.py:34 users/views.py:44 users/views.py:66
+msgid "No access rights"
+msgstr "У вас нет прав для изменения другого пользователя"
+
+#: users/views.py:55
+msgid "User data changed successfully"
+msgstr "Пользователь успешно изменен"
+
+#: users/views.py:56 users/views.py:78
+msgid "Incorrect data, please try again"
+msgstr "Некорректные данные, попробуйте еще раз"
+
+#: users/views.py:77
+msgid "User created successfully"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: views.py:23
+msgid "You have successfully logged in"
+msgstr "Вы залогинены"
+
+#: views.py:35
+msgid "You have successfully logged out"
+msgstr "Вы разлогинены"
