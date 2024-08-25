@@ -1,0 +1,22 @@
+databases:
+  - name: db_page_analyzer
+    plan: free
+    databaseName: db_page_analyzer
+    user: work
+
+services:
+  - type: web
+    plan: free
+    name: task_manager
+    runtime: python
+    buildCommand: make build
+    startCommand: make start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: db_page_analyzer
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4

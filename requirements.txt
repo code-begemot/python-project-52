@@ -1,0 +1,24 @@
+asgiref==3.8.1
+certifi==2024.7.4
+charset-normalizer==3.3.2
+coverage==7.6.1
+dj-database-url==2.2.0
+Django==5.1
+django-bootstrap5==24.2
+django-filter==24.3
+flake8==7.1.1
+gunicorn==23.0.0
+-e git+ssh://git@github.com/code-begemot/python-project-52.git@bd895253e5f7e2a04213c824bea104f15cc23ec4#egg=hexlet_code
+idna==3.8
+mccabe==0.7.0
+packaging==24.1
+psycopg2-binary==2.9.9
+pycodestyle==2.12.1
+pyflakes==3.2.0
+python-dotenv==1.0.1
+requests==2.32.3
+rollbar==1.0.0
+sqlparse==0.5.1
+typing_extensions==4.12.2
+urllib3==2.2.2
+whitenoise==6.7.0
