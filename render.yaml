@@ -9,8 +9,8 @@ services:
     plan: free
     name: task_manager
     runtime: python
-    buildCommand: make build
-    startCommand: make start
+    buildCommand: "./build.sh"
+    startCommand: "poetry run python -m gunicorn task_manager.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
