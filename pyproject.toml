@@ -19,6 +19,7 @@ psycopg2-binary = "^2.9.9"
 gunicorn = "^23.0.0"
 rollbar = "^1.0.0"
 whitenoise = "^6.7.0"
+uvicorn = "^0.30.6"
 
 
 [tool.poetry.group.dev.dependencies]
