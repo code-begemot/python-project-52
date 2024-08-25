@@ -69,11 +69,19 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/']
 
 ROOT_URLCONF = 'task_manager.urls'
+
+ROLLBAR = {
+    'access_token': ROLLBAR_TOKEN,
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
 
 TEMPLATES = [
     {
