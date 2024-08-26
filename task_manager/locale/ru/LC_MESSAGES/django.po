@@ -150,16 +150,17 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: templates/labels/update.html:13
-msgid "Изменение метки"
-msgstr ""
+msgid "Change label"
+msgstr "Изменение метки"
 
-#: templates/login.html:12 templates/navigation.html:19
+#: templates/login.html:12
+#: templates/navigation.html:19
 msgid "Sign In"
-msgstr "Войти"
+msgstr "Вход"
 
 #: templates/login.html:16
 msgid "Log In"
-msgstr "Вход"
+msgstr "Войти"
 
 #: templates/navigation.html:14 templates/users/index.html:14
 msgid "Users"
