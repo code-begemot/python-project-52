@@ -155,7 +155,7 @@ msgstr ""
 
 #: templates/login.html:12 templates/navigation.html:19
 msgid "Sign In"
-msgstr "Вход"
+msgstr "Войти"
 
 #: templates/login.html:16
 msgid "Log In"
