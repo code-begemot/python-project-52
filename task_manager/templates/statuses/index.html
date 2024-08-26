@@ -26,7 +26,7 @@
   </thead>
   
   <tbody>
-	  {% for status in statuses %}
+	  {% for status in object_list %}
       <tr>
         <td>{{ status.id }}</td>
         <td>{{ status.name }}</td>
@@ -40,5 +40,5 @@
       {% endfor %}
   </tbody>
 </table>
-
+</div>
 {% endblock content %}
