@@ -169,7 +169,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 # This setting informs Django of the URI path from which your static files will be served to users
-# Here, they well be accessible at your-domain.onrender.com/static/... or yourcustomdomain.com/static/...
+# Here, they well be accessible at your-domain.onrender.com/static/...
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -213,7 +213,7 @@ BOOTSTRAP5 = {
     # Color mode (None means do not set color mode).
     "color_mode": None,
 
-    # Put JavaScript in the HEAD section of the HTML document (only relevant if you use bootstrap5.html).
+    # Put JavaScript in the HEAD section of the HTML document
     'javascript_in_head': False,
 
     # Wrapper class for non-inline fields.
@@ -242,10 +242,10 @@ BOOTSTRAP5 = {
     # Class to indicate field has one or more errors (better to set this in your Django form).
     'error_css_class': '',
 
-    # Class to indicate success, meaning the field has valid input (better to set this in your Django form).
+    # Class to indicate success, meaning the field has valid input
     'success_css_class': '',
 
-    # Enable or disable Bootstrap 5 server side validation classes (separate from the indicator classes above).
+    # Enable or disable Bootstrap 5 server side validation classes
     'server_side_validation': True,
 
     # Renderers (only set these if you have studied the source and understand the inner workings).
