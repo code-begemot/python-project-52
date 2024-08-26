@@ -88,7 +88,7 @@ class TaskDeleteView(SuccessMessageMixin, DeleteView):
         return super().get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        self.object.delete()
+        self.get_object().delete()
         messages.success(self.request, self.success_message)
         return redirect(self.success_url)
 
