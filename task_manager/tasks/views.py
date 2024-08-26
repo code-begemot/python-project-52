@@ -70,15 +70,27 @@ class TaskDeleteView(SuccessMessageMixin, DeleteView):
     success_message = _('Task deleted successfully')
     error_message = _('Only creator can delete the task')
 
-    def form_valid(self, form):
-        if self.object.creator == self.request.user:
-            self.object.delete()
-            messages.success(self.request, self.success_message)
-            return redirect(self.success_url)
-
-        else:
+#    def form_valid(self, form):
+#        if self.object.creator == self.request.user:
+#            self.object.delete()
+#            messages.success(self.request, self.success_message)
+#            print('success')
+#            return redirect(self.success_url)
+#
+#        else:
+#            messages.error(self.request, self.error_message)
+#            print('error')
+#            return redirect(self.success_url)
+    def get(self, request, *args, **kwargs):
+        if self.get_object().creator != self.request.user:
             messages.error(self.request, self.error_message)
-            return redirect(self.success_url)
+            return redirect(reverse_lazy('tasks'))
+        return super().get(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.object.delete()
+        messages.success(self.request, self.success_message)
+        return redirect(self.success_url)
 
 
 class TaskDetailView(LoginRequiredMixin, DetailView):
