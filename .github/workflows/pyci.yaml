@@ -1,4 +1,4 @@
-name: Python CI
+name: task_manager
 
 on:
   - push
@@ -9,27 +9,36 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # we want to test our package on several versions of Python
-        python-version: [3.12]
+        python-version: [3.10.12]
+
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-        # make depends on poetry
+
       - name: Install dependencies
         run: |
           pip install poetry
           make install
-      - name: Run linter and pytest
+      - name: Run linter
         run: |
           make lint
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v5.0.0
+
+      - name: Django Testing
+        env:
+          DEBUG: ${{ secrets.DEBUG }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          make tests
+
+      - name: Test coverage
+        uses: paambaati/codeclimate-action@v3.1.1
         if: github.ref_name == 'main'
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.MY_CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: make tests-cov
           debug: true
