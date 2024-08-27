@@ -104,4 +104,3 @@ class BaseTest(TestCase):
         self.assertNotIn('user_test1', content)
         self.assertIn('Sign In', content)
         self.assertRedirects(response_redirect, '/users/', 302, 200)
-
