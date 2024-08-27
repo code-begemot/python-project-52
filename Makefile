@@ -40,7 +40,7 @@ tests:
 	poetry run python3 manage.py test
 
 tests-cov:
-	poetry run coverage run ./manage.py test
+	poetry run coverage run manage.py test
 	poetry run coverage xml
 
 setup:
