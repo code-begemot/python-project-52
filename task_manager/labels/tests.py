@@ -6,6 +6,7 @@ from task_manager.tasks.models import Task
 from task_manager.labels.models import Label
 from django.utils.translation import gettext as _
 
+
 class BaseTest(TestCase):
 
     @classmethod

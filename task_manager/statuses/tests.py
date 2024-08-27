@@ -5,6 +5,7 @@ from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
 from django.utils.translation import gettext as _
 
+
 class BaseTest(TestCase):
 
     @classmethod
