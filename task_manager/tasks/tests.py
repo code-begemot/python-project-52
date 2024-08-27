@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from task_manager.tasks.models import Task
 from task_manager.statuses.models import Status
 from task_manager.labels.models import Label
+from django.utils.translation import gettext as _
 
 
 class BaseTest(TestCase):
@@ -65,7 +66,7 @@ class BaseTest(TestCase):
 
         response = self.client.get('/tasks/')
         content = response.content.decode()
-        self.assertIn('Task created successfully', content)
+        self.assertIn(_('Task created successfully'), content)
         self.assertRedirects(response_redirect, '/tasks/')
 
     def test_update_task(self):
@@ -84,9 +85,9 @@ class BaseTest(TestCase):
         )
         response = self.client.get('/tasks/')
         content = response.content.decode()
-        self.assertIn('Task changed successfully', content)
+        self.assertIn(_('Task changed successfully'), content)
         self.assertIn('task_unaction', content)
-        self.assertIn('Tasks', content)
+        self.assertIn(_('Tasks'), content)
         self.assertRedirects(response_redirect, '/tasks/', 302, 200)
 
     def test_delete_task(self):
@@ -95,7 +96,7 @@ class BaseTest(TestCase):
         response_redirect = self.client.get(f'/tasks/{task_id}/delete/')
         response = self.client.get('/tasks/')
         content = response.content.decode()
-        self.assertIn('Only creator can delete the task', content)
+        self.assertIn(_('Only creator can delete the task'), content)
         self.assertRedirects(response_redirect, '/tasks/', 302, 200)
 
         self.client.logout()
@@ -110,7 +111,7 @@ class BaseTest(TestCase):
         response_redirect = self.client.post(f'/tasks/{task_id}/delete/')
         response = self.client.get('/tasks/')
         content = response.content.decode()
-        self.assertIn('Task deleted successfully', content)
+        self.assertIn(_('Task deleted successfully'), content)
         self.assertNotIn('task_action', content)
-        self.assertIn('Tasks', content)
+        self.assertIn(_('Tasks'), content)
         self.assertRedirects(response_redirect, '/tasks/', 302, 200)

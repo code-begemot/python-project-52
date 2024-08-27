@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 
 from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
-
+from django.utils.translation import gettext as _
 
 class BaseTest(TestCase):
 
@@ -49,7 +49,7 @@ class BaseTest(TestCase):
 
         response = self.client.get('/statuses/')
         content = response.content.decode()
-        self.assertIn('Status created successfully', content)
+        self.assertIn(_('Status created successfully'), content)
         self.assertRedirects(response_redirect, '/statuses/')
 
     def test_update_status(self):
@@ -64,9 +64,9 @@ class BaseTest(TestCase):
                                              {"name": "status_unaction", })
         response = self.client.get('/statuses/')
         content = response.content.decode()
-        self.assertIn('Status changed successfully', content)
+        self.assertIn(_('Status changed successfully'), content)
         self.assertIn('status_unaction', content)
-        self.assertIn('Statuses', content)
+        self.assertIn(_('Statuses'), content)
         self.assertRedirects(response_redirect, '/statuses/', 302, 200)
 
     def test_delete_status(self):
@@ -76,7 +76,7 @@ class BaseTest(TestCase):
         response_redirect = self.client.post(f'/statuses/{status_id}/delete/')
         response = self.client.get('/statuses/')
         content = response.content.decode()
-        self.assertIn('Status used in a task cannot be deleted',
+        self.assertIn(_('Status used in a task cannot be deleted'),
                       content)
         self.assertRedirects(response_redirect, '/statuses/', 302, 200)
 
@@ -87,7 +87,7 @@ class BaseTest(TestCase):
         response_redirect = self.client.post(f'/statuses/{status_id}/delete/')
         response = self.client.get('/statuses/')
         content = response.content.decode()
-        self.assertIn('Status deleted successfully', content)
+        self.assertIn(_('Status deleted successfully'), content)
         self.assertNotIn('status_action', content)
-        self.assertIn('Statuses', content)
+        self.assertIn(_('Statuses'), content)
         self.assertRedirects(response_redirect, '/statuses/', 302, 200)

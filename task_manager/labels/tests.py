@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
 from task_manager.labels.models import Label
-
+from django.utils.translation import gettext as _
 
 class BaseTest(TestCase):
 
@@ -53,7 +53,7 @@ class BaseTest(TestCase):
 
         response = self.client.get('/labels/')
         content = response.content.decode()
-        self.assertIn('Label created successfully', content)
+        self.assertIn(_("Label created successfully"), content)
         self.assertRedirects(response_redirect, '/labels/')
 
     def test_update_label(self):
@@ -68,9 +68,9 @@ class BaseTest(TestCase):
                                              {"name": "label_unaction", })
         response = self.client.get('/labels/')
         content = response.content.decode()
-        self.assertIn('Label changed successfully', content)
+        self.assertIn(_("Label changed successfully"), content)
         self.assertIn('label_unaction', content)
-        self.assertIn('Labels', content)
+        self.assertIn(_('Labels'), content)
         self.assertRedirects(response_redirect, '/labels/', 302, 200)
 
     def test_delete_label(self):
@@ -80,7 +80,7 @@ class BaseTest(TestCase):
         response_redirect = self.client.post(f'/labels/{label_id}/delete/')
         response = self.client.get('/labels/')
         content = response.content.decode()
-        self.assertIn('Label used in a task cannot be deleted',
+        self.assertIn(_("Label used in a task cannot be deleted"),
                       content)
         self.assertRedirects(response_redirect, '/labels/', 302, 200)
 
@@ -91,7 +91,7 @@ class BaseTest(TestCase):
         response_redirect = self.client.post(f'/labels/{label_id}/delete/')
         response = self.client.get('/labels/')
         content = response.content.decode()
-        self.assertIn('Label deleted successfully', content)
+        self.assertIn(_("Label deleted successfully"), content)
         self.assertNotIn('task_action', content)
-        self.assertIn('Labels', content)
+        self.assertIn(_("Labels"), content)
         self.assertRedirects(response_redirect, '/labels/', 302, 200)

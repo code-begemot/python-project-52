@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-
+from django.utils.translation import gettext as _
 
 class BaseTest(TestCase):
 
@@ -35,7 +35,7 @@ class BaseTest(TestCase):
 
         response = self.client.get('/login/')
         content = response.content.decode()
-        self.assertIn('User created successfully', content)
+        self.assertIn(_('User created successfully'), content)
         self.assertRedirects(response_redirect, '/login/')
 
     def test_error_create_user(self):
@@ -43,7 +43,7 @@ class BaseTest(TestCase):
                                                        "password1": "ptest",
                                                        "password2": "ptest"})
         content = response.content.decode()
-        self.assertIn('Incorrect data, please try again',
+        self.assertIn(_('Incorrect data, please try again'),
                       content)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'users/registration.html')
@@ -55,7 +55,7 @@ class BaseTest(TestCase):
 
         response = self.client.get('/users/')
         content = response.content.decode()
-        self.assertIn('No access rights', content)
+        self.assertIn(_('No access rights'), content)
         self.assertRedirects(response_redirect, '/users/', 302, 200)
 
         user_id = get_user_model().objects.get(username='user_test1').id
@@ -70,9 +70,9 @@ class BaseTest(TestCase):
                                               "password2": "ptesttest"})
         response = self.client.get('/users/')
         content = response.content.decode()
-        self.assertIn('User data changed successfully', content)
+        self.assertIn(_('User data changed successfully'), content)
         self.assertIn('user_test11', content)
-        self.assertIn('Sign In', content)
+        self.assertIn(_('Sign In'), content)
         self.assertRedirects(response_redirect, '/users/', 302, 200)
 
         self.client.login(username="user_test11", password="ptesttest")
@@ -87,7 +87,7 @@ class BaseTest(TestCase):
         response_redirect = self.client.get(f'/users/{user_id}/delete/')
         response = self.client.get('/users/')
         content = response.content.decode()
-        self.assertIn('No access rights', content)
+        self.assertIn(_('No access rights'), content)
         self.assertRedirects(response_redirect, '/users/', 302, 200)
 
         user_id = get_user_model().objects.get(username='user_test1').id
@@ -100,7 +100,7 @@ class BaseTest(TestCase):
         response_redirect = self.client.post(f'/users/{user_id}/delete/')
         response = self.client.get('/users/')
         content = response.content.decode()
-        self.assertIn('User data deleted successfully', content)
+        self.assertIn(_('User data deleted successfully'), content)
         self.assertNotIn('user_test1', content)
-        self.assertIn('Sign In', content)
+        self.assertIn(_('Sign In'), content)
         self.assertRedirects(response_redirect, '/users/', 302, 200)
