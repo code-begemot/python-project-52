@@ -37,7 +37,7 @@ lint:
 	poetry run flake8 --ignore=E501 task_manager
 
 tests:
-	poetry run python3 manage.py test
+	poetry run coverage run manage.py test
 
 tests-cov:
 	poetry run coverage xml -o coverage.xml
