@@ -23,7 +23,6 @@ class IndexView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['messages'] = messages.get_messages(self.request)
-        print(context)
         return context
 
 
